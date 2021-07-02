@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<noscript>
+    <h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+        enabled. Please enable
+        Javascript and reload this page!</h2>
+</noscript>
+<div id="main-content" class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-inline" name="subForm">
+                <div class="form-group">
+                    <label for="connect">Subscribe to useId:
+                        <input type="number" class="form-control" name="userId" [(ngModel)]="userId" />
+                    </label>
+                </div>
+                <button (click)="subscribeToUser()" class="btn btn-default" type="button">Subscribe</button>
+            </form>
+        </div>
+        <br /><br /><br />
+        <div class="col-md-12"> <!-- *ngIf="showTest"> -->
+            <hr />
+            <form class="form-inline" name="testForm">
+                <div class="form-group">
+                    <label for="connect">Test Message:
+                        <input type="text" class="form-control" name="messasge" [(ngModel)]="messasge" />
+                    </label>
+                </div>
+                <button (click)="testMessage()" class="btn btn-default" type="button">Test</button>
+            </form>
+        </div>
+        <table class="table table-striped" style="margin-top: 20px;">
+            <tbody *ngFor="let msg of webSocketAPI.msg">
+                <tr>
+                    <td>{{msg}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<router-outlet></router-outlet>
